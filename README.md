@@ -21,3 +21,6 @@ AI-ul este capabil să:
 
 ## Câte date avem?
 Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante pentru analiza tenului: **acens**, **blackheads**, **wrinkles** și **darkspots**, fiecare conținând câte 250 de imagini. Această ditstribuție echilibrată este ideală pentru antrenarea unui model de clasificare sau segmentare, deoarece reduce riscul de bias față de o anumită clasă. Fiecare imagine este presupusă a reprezenta clar o singură categorie de problemă cosmetică, ceea ce contribuie la o etichetare coerentă și la o acuratețe mai bună în procesul de antrenare. În funcție de complexitatea modelului și a sarcinii, acest set poate fi extins ulterior pentru a crește generalizarea.
+
+## Ce distribuție au datele?
+Distribuția datelor din setul de imagini este uniformă pentru cele patru categorii: **acens**, **blackheads**, **wrinkles** și **darkspots**. Această distribuție echilibrată este importantă pentru antrenarea unui model de învățare automată, deoarece previne supra-reprezentarea unei clase și permite modelului să învețe mai corect diferențele subtile dintre tipurile de imperfecțiuni cutanate.
