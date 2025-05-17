@@ -16,3 +16,8 @@ AI-ul este capabil să:
 - **cuantifice problemele** (ex.: numărul de leziuni, adâncimea aparentă a ridurilor, distribuția punctelor negre etc.).
 
   Aceste sarcini nu sunt chiar așa de ușor de realizat nici pentru un dermatolog, dar AI poate oferi aceste informații în mod automat și constant.
+
+# Etapa II: Analiza datelor de intrare
+
+## Câte date avem?
+Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante pentru analiza tenului: **acens**, **blackheads**, **wrinkles** și **darkspots**, fiecare conținând câte 250 de imagini. Această ditstribuție echilibrată este ideală pentru antrenarea unui model de clasificare sau segmentare, deoarece reduce riscul de bias față de o anumită clasă. Fiecare imagine este presupusă a reprezenta clar o singură categorie de problemă cosmetică, ceea ce contribuie la o etichetare coerentă și la o acuratețe mai bună în procesul de antrenare. În funcție de complexitatea modelului și a sarcinii, acest set poate fi extins ulterior pentru a crește generalizarea.
