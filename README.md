@@ -37,3 +37,5 @@ Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante 
 ## Ce distribuție au datele?
 
 Distribuția datelor din setul de imagini este uniformă pentru cele patru categorii: **acens**, **blackheads**, **wrinkles** și **darkspots**. Această distribuție echilibrată este importantă pentru antrenarea unui model de învățare automată, deoarece previne supra-reprezentarea unei clase și permite modelului să învețe mai corect diferențele subtile dintre tipurile de imperfecțiuni cutanate.
+
+În ceea ce privește dimensiunile imaginilor, există o variație semnificativă în termeni de înălțime și lățime. De asemenea, raportul de aspect al imaginilor variază, indicând un set divers de imagini care pot include atât imagini cu întreaga față, cât și porțiuni ale feței.
