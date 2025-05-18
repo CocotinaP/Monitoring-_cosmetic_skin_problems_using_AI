@@ -4,7 +4,7 @@ Datele pentru acest proiect sunt organizate astfel:
 
 ```
 data/
-├── acens/        # 250 imagini cu acnee
+├── acnes/        # 250 imagini cu acnee
 ├── blackheads/   # 250 imagini cu puncte negre
 ├── wrinkles/     # 250 imagini cu riduri
 └── darkspots/    # 250 imagini cu pete pigmentare
