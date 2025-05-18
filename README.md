@@ -55,6 +55,10 @@ AI-ul este capabil să:
 
 # Etapa II: Analiza datelor de intrare
 
+## Ce tip de date avem?
+
+Pentru antrenarea sistemului de detecție a problemelor cosmetice utilizăm un set de date ce conține imagini color impărțite în 4 categorii specifice(acnee, riduri, puncte negre, pete pigmentare). Imaginile faciale redau fie întreaga față, fie doar o porțiune. 
+
 ## Câte date avem?
 
 Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante pentru analiza tenului: **acens**, **blackheads**, **wrinkles** și **darkspots**, fiecare conținând câte 250 de imagini. Această distribuție echilibrată este ideală pentru antrenarea unui model de clasificare sau segmentare, deoarece reduce riscul de bias față de o anumită clasă. Fiecare imagine este presupusă a reprezenta clar o singură categorie de problemă cosmetică, ceea ce contribuie la o etichetare coerentă și la o acuratețe mai bună în procesul de antrenare. În funcție de complexitatea modelului și a sarcinii, acest set poate fi extins ulterior pentru a crește generalizarea.
