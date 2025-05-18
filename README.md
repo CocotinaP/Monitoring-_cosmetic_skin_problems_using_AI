@@ -1,3 +1,17 @@
+## Structura folderului de date
+
+Datele pentru acest proiect sunt organizate astfel:
+
+```
+data/
+├── acens/        # 250 imagini cu acnee
+├── blackheads/   # 250 imagini cu puncte negre
+├── wrinkles/     # 250 imagini cu riduri
+└── darkspots/    # 250 imagini cu pete pigmentare
+```
+
+Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versionat. Contribuitorii trebuie să obțină setul de date separat.
+
 # Etapa I: Definirea problemei.
 
 ## Ce se dă și ce se cere?
