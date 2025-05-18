@@ -11,6 +11,12 @@ De asemenea, este important ca soluția să fie folosită doar pentru scopuri co
 
 ## De ce e nevoie de AI pentru a rezolva problema?
 
+### <ins>1. Complexitatea vizuală a pielii umane</ins>
+
+Pielea umană este un organ variabil și complex. Textura, culoarea, luminozitatea, tonul pielii și tipurile de leziuni (acnee, puncte negre, riduri etc.) variază considerabil de la o persoana la alta, în funcție de: **genetica individuală, vârsta, etnie, obiceiuri de îngrijire, expunerea la factori de mediu (soare, poluare, etc.)**.
+
+Aceasta <ins>complexitate</ins> face dificilă aplicarea unor reguli sau a unor meotde clasice de analiză. În special, rețelele neuronale convoluționale (CNN) sunt capabile să învețe aceste variații din mii de imagini și să generalizeze corect cazuri noi.
+
 ### <ins>2. Capacitatea de detecție și segmentarea de înaltă precizie</ins>
 
 AI-ul este capabil să:
