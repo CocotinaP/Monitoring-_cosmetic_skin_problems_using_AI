@@ -20,6 +20,13 @@ Se dau mai multe fotografii cu diverse afecțiuni dermatologice al feței (ridur
 Pe baza acestora trebuie dezvoltat un sistem inteligent care să permită identificarea problemelor cosmetice ale tenului și generarea de recomandări personalizate pentru îngrijirea pielii,
 bazate pe analiza imaginilor.
 
+b.	Algoritmi de AI pentru a identifica problemele pielii <br>
+c.	Generarea recomandărilor:
+
+    •	Recomandări bazate pe tipul afecțiunii identificate
+    •	Sugerarea unor schimbări în stilul de viață și alimentație
+
+
 Sistemul ar trebui să fie antrenat pe un set variat de date pentru a putea "învăța" să facă distincții precise între problemele pielii.
 De asemenea, este important ca soluția să fie folosită doar pentru scopuri cosmetice și nu ca înlocuitor pentru un consult dermatologic.
 
@@ -41,6 +48,12 @@ AI-ul este capabil să:
 
   Aceste sarcini nu sunt chiar așa de ușor de realizat nici pentru un dermatolog, dar AI poate oferi aceste informații în mod automat și constant.
   <br> <br>
+
+### <ins>4.	Reducerea erorilor și a subiectivității </ins>
+  În diagnosticarea tradițională, există un grad mare de **subiectivitate** – doi dermatologi pot oferi opinii diferite iar unele probleme pot fi omise vizual în graba consultației. AI aduce **consistență, obiectivitate și acuratețe**, deoarece utilizează aceiași algoritmi  și criterii pentru toate cazurile analizate.
+
+### <ins>5.	Integrare ușoară în produse comerciale </ins>
+  Tehnologia AI poate fi integrată în aplicații mobile de beauty & health, oglinzi inteligente, aparatură de diagnostic la domiciliu, produse cosmetice personalizare (cu scanare facială). Aceasta oferă un avantaj competitiv companiilor din domeniul cosmetic și wellness.
 
 # Etapa II: Analiza datelor de intrare
 
