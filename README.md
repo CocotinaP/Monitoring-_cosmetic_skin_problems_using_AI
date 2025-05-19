@@ -19,9 +19,9 @@ Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versi
 Se dau mai multe fotografii cu diverse afecțiuni dermatologice al feței (riduri, puncte negre, acnee etc.).  
 Pe baza acestora trebuie dezvoltat un sistem inteligent care să permită identificarea problemelor cosmetice ale tenului și generarea de recomandări personalizate pentru îngrijirea pielii,
 bazate pe analiza imaginilor.<br>
-Pentru implementarea acestui sistem, trebuie luate în considerare următoarele componente: 
+Pentru implementarea acestui sistem, trebuie luate în considerare următoarele componente: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Capturarea imaginilor și procesarea acestora <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Utilizatorul/ pacientul trebuie să își facă o poză cât se poate de clară, în unghiurile potrivite pentru analiza zonei afectate. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Utilizatorul/ pacientul trebuie să își facă o poză cât se poate de clară, în unghiurile potrivite pentru analiza zonei afectate. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.	Algoritmi de AI pentru a identifica problemele pielii <br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.	Generarea recomandărilor:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•**	Recomandări bazate pe tipul afecțiunii identificate<br>
@@ -49,6 +49,10 @@ AI-ul este capabil să:
 
   Aceste sarcini nu sunt chiar așa de ușor de realizat nici pentru un dermatolog, dar AI poate oferi aceste informații în mod automat și constant.
   <br> <br>
+
+### <ins>3. Învățarea din date și îmbunătățirea continuă </ins>
+
+AI are capacitatea de a învăța în mod continuu. Pe măsură ce primește mai multe imagini și etichete corecte, modelele de învățare profunda devin tot mai precise. Modelele pot fi antrenate pe baze de date dermatologice diverse, adaptate pe populații locale sau tipuri specifice de ten. Iar sistemul poate fi optimizat pentru a detecta afecțiuni rar întâlnite sau forme atipice de acnee, riduri. 
 
 ### <ins>4.	Reducerea erorilor și a subiectivității </ins>
   În diagnosticarea tradițională, există un grad mare de **subiectivitate** – doi dermatologi pot oferi opinii diferite iar unele probleme pot fi omise vizual în graba consultației. AI aduce **consistență, obiectivitate și acuratețe**, deoarece utilizează aceiași algoritmi  și criterii pentru toate cazurile analizate.
