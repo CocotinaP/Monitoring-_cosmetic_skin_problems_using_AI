@@ -64,7 +64,9 @@ AI are capacitatea de a învăța în mod continuu. Pe măsură ce primește mai
 
 ## Ce tip de date avem?
 
-Pentru antrenarea sistemului de detecție a problemelor cosmetice utilizăm un set de date ce conține imagini color impărțite în 4 categorii specifice(acnee, riduri, puncte negre, pete pigmentare). Imaginile faciale redau fie întreaga față, fie doar o porțiune. 
+Pentru antrenarea sistemului de detecție a problemelor cosmetice utilizăm un set de date ce conține imagini color impărțite în 4 categorii specifice(acnee, riduri, puncte negre, pete pigmentare). Imaginile faciale redau fie întreaga față, fie doar o porțiune. Setul de date este esențial pentru învățarea automată supravegheată și permite sistemului să învețe diferențele vizuale subtile dintre diversele imperfecțiuni cutanate. 
+
+Pentru a folosi aplicația, utilizatorul trebuie să furnizeze o simplă fotografie a feței. Modelul AI antrenat va evalua imaginea utilizatorului și va produce o analiză automată. 
 
 ## Câte date avem?
 
