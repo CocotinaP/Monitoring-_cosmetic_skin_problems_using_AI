@@ -19,6 +19,9 @@ Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versi
 Se dau mai multe fotografii cu diverse afecțiuni dermatologice al feței (riduri, puncte negre, acnee etc.).  
 Pe baza acestora trebuie dezvoltat un sistem inteligent care să permită identificarea problemelor cosmetice ale tenului și generarea de recomandări personalizate pentru îngrijirea pielii,
 bazate pe analiza imaginilor.<br>
+Pentru implementarea acestui sistem, trebuie luate în considerare următoarele componente: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Capturarea imaginilor și procesarea acestora <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Utilizatorul/ pacientul trebuie să își facă o poză cât se poate de clară, în unghiurile potrivite pentru analiza zonei afectate. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.	Algoritmi de AI pentru a identifica problemele pielii <br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.	Generarea recomandărilor:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•**	Recomandări bazate pe tipul afecțiunii identificate<br>
