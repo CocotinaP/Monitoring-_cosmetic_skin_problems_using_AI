@@ -77,3 +77,13 @@ Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante 
 Distribuția datelor din setul de imagini este uniformă pentru cele patru categorii: **acens**, **blackheads**, **wrinkles** și **darkspots**. Această distribuție echilibrată este importantă pentru antrenarea unui model de învățare automată, deoarece previne supra-reprezentarea unei clase și permite modelului să învețe mai corect diferențele subtile dintre tipurile de imperfecțiuni cutanate.
 
 În ceea ce privește dimensiunile imaginilor, există o variație semnificativă în termeni de înălțime și lățime. De asemenea, raportul de aspect al imaginilor variază, indicând un set divers de imagini care pot include atât imagini cu întreaga față, cât și porțiuni ale feței.
+
+# Etapa IV: Dezvoltarea unui model de AI și evaluarea performantei
+
+## Ce arhitectura are modelul de AI?
+
+Modelul este o rețea neuronală convoluțională (CNN), formată din următoarele straturi:
+-	Straturi convoluționale:
+ -	Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
+ -	Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
+ -	Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
