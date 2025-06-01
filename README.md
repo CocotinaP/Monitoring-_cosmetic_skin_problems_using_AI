@@ -84,6 +84,12 @@ Distribuția datelor din setul de imagini este uniformă pentru cele patru categ
 
 Modelul este o rețea neuronală convoluțională (CNN), formată din următoarele straturi:
 -	Straturi convoluționale:
- -	Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
- -	Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
- -	Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
+  -	Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
+  -	Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
+  -	Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
+
+## Ce metrici de performanta se monitorizeaza?
+
+Modelul folosește următoarele metrici pentru evaluare: 
+- **Acuratețe (accuracy)** – măsoară procentul de clasificări corecte 
+- **Funcția de pierdere (loss)** – arată diferența între predicțiile modelului și etichetele reale 
