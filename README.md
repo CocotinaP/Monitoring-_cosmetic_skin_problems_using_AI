@@ -96,6 +96,9 @@ Modelul este o rețea neuronală convoluțională (CNN), formată din următoare
 - Strat de Flatten:
   - Flatten() – transformă datele 2D în format 1D pentru a fi procesate de straturile dense
     <br>
+- Straturi dense:
+  - Dense(512, activation='relu') - strat dens pentru invățarea caracteristicilor
+  - Dense(len(class_name),activation='softmax')- stratul final care oferă probabilități pentru fiecare clasă
 
 ## Ce setup (parametrii si hiper-parametrii) se folosesc pentru antrenarea si validarea modelului de AI?
 
