@@ -41,3 +41,49 @@ def create_improved_model(num_classes=4):
     
     return model
 
+# 2. FACE DETECTION & CROPPING
+def detect_and_crop_face(image_path):
+    """
+    Automatically detect and crop face from image
+    This improves accuracy by focusing on the face area
+    """
+    # Load face detection classifier
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    
+    # Read image
+    img = cv2.imread(image_path)
+    if img is None:
+        raise ValueError(f"Could not read image: {image_path}")
+    
+    # Convert to grayscale for face detection
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    
+    # Detect faces
+    faces = face_cascade.detectMultiScale(
+        gray, 
+        scaleFactor=1.1, 
+        minNeighbors=5, 
+        minSize=(100, 100)
+    )
+    
+    if len(faces) > 0:
+        # Take the largest face (most likely the main subject)
+        largest_face = max(faces, key=lambda rect: rect[2] * rect[3])
+        (x, y, w, h) = largest_face
+        
+        # Add some padding around the face
+        padding = int(0.2 * min(w, h))
+        x = max(0, x - padding)
+        y = max(0, y - padding)
+        w = min(img.shape[1] - x, w + 2 * padding)
+        h = min(img.shape[0] - y, h + 2 * padding)
+        
+        # Crop face region
+        face_img = img[y:y+h, x:x+w]
+        
+        # Resize to model input size
+        face_img = cv2.resize(face_img, (224, 224))
+        return face_img
+    else:
+        print("No face detected, using full image")
+        return cv2.resize(img, (224, 224))
