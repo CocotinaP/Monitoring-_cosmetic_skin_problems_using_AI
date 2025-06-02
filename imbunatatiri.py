@@ -174,6 +174,52 @@ def create_multilabel_model(num_classes=4):
     
     return model
 
+# 6. FIXED TRAINING WITH DATA AUGMENTATION
+def create_advanced_data_generators(data_dir, batch_size=32):
+    """
+    Create data generators with advanced augmentation (FIXED)
+    """
+    # FIXED: Removed problematic preprocessing function
+    train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+        rescale=1./255,
+        rotation_range=15,
+        width_shift_range=0.1,
+        height_shift_range=0.1,
+        shear_range=0.1,
+        zoom_range=0.1,
+        horizontal_flip=True,
+        brightness_range=[0.9, 1.1],
+        validation_split=0.2,
+        fill_mode='nearest'
+    )
+    
+    # Validation data generator (no augmentation, only rescaling)
+    val_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+        rescale=1./255,
+        validation_split=0.2
+    )
+    
+    train_generator = train_datagen.flow_from_directory(
+        data_dir,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse',  # Changed to sparse for sparse_categorical_crossentropy
+        subset='training',
+        shuffle=True
+    )
+    
+    validation_generator = val_datagen.flow_from_directory(
+        data_dir,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse',  # Changed to sparse for sparse_categorical_crossentropy
+        subset='validation',
+        shuffle=False
+    )
+    
+    return train_generator, validation_generator
+
+
 # 7. USAGE EXAMPLE 
 def improved_prediction_function(model, class_names):
     """
