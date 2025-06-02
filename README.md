@@ -80,6 +80,8 @@ Distribuția datelor din setul de imagini este uniformă pentru cele patru categ
 
 # Etapa IV: Dezvoltarea unui model de AI și evaluarea performantei
 
+Pe baza codului anterior, avem un **model CNN** (Convolutional Neural Network) pentru clasificarea afecțiunilor pielii. Mai jos sunt detaliile arhitecturii, setup-ul parametrilor și metricile de performanță monitorizate. 
+
 ## Ce arhitectura are modelul de AI?
 
 Modelul este o rețea neuronală convoluțională (CNN), formată din următoarele straturi:
