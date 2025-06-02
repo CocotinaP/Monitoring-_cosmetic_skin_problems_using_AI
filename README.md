@@ -89,6 +89,10 @@ Modelul este o rețea neuronală convoluțională (CNN), formată din următoare
   -	Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
   -	Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
   -	Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
+- Straturi de pooling: 
+  - MaxPooling2D(2,2) – reduce dimensiunea caracteristicilor, păstrând informațiile esențiale 
+- Strat de Flatten:
+  - Flatten() – transformă datele 2D în format 1D pentru a fi procesate de straturile dense 
 
 ## Ce metrici de performanta se monitorizeaza?
 
