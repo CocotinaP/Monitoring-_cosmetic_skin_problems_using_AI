@@ -111,3 +111,5 @@ Modelul folosește următoarele metrici pentru evaluare:
 
 - **Acuratețe (accuracy)** – măsoară procentul de clasificări corecte
 - **Funcția de pierdere (loss)** – arată diferența între predicțiile modelului și etichetele reale
+
+Curbele de învățare (accuracy vs. loss pe train/validation) – ajută la analiza overfitting-ului Confusion matrix (opțional) – dacă vrem să vedem unde modelul greșește cel mai mult.
