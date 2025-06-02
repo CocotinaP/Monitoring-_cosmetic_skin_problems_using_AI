@@ -113,3 +113,33 @@ def preprocess_image_advanced(image_path):
     
     return enhanced_img
 
+# 4. CONFIDENCE-BASED PREDICTION
+def predict_with_confidence(model, image_path, class_names, confidence_threshold=0.6):
+    """
+    Make predictions with confidence scoring
+    Only return predictions above threshold
+    """
+    # Preprocess image
+    processed_img = preprocess_image_advanced(image_path)
+    
+    # Make prediction
+    predictions = model.predict(processed_img, verbose=0)
+    max_confidence = np.max(predictions[0])
+    predicted_class_idx = np.argmax(predictions[0])
+    predicted_class = class_names[predicted_class_idx]
+    
+    # Check confidence threshold
+    if max_confidence < confidence_threshold:
+        return {
+            'prediction': 'uncertain',
+            'confidence': max_confidence,
+            'message': f'Low confidence ({max_confidence:.2%}). Image may be unclear or show multiple conditions.',
+            'all_probabilities': {class_names[i]: predictions[0][i] for i in range(len(class_names))}
+        }
+    else:
+        return {
+            'prediction': predicted_class,
+            'confidence': max_confidence,
+            'message': f'Detected {predicted_class} with {max_confidence:.2%} confidence',
+            'all_probabilities': {class_names[i]: predictions[0][i] for i in range(len(class_names))}
+        }
