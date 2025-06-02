@@ -317,3 +317,144 @@ def batch_analysis_function(model, class_names):
         except:
             pass
 
+# Quick single image analysis function
+def quick_analysis_function(model, class_names, image_path):
+    """
+    Quick analysis for a specific image path
+    """
+    if not os.path.exists(image_path):
+        print(f"Image not found: {image_path}")
+        return
+    
+    print(f"🔍 Quick analysis: {os.path.basename(image_path)}")
+    
+    try:
+        result = predict_with_confidence(model, image_path, class_names)
+        print(f"Result: {result['prediction']} ({result['confidence']:.1%})")
+        print(f"Message: {result['message']}")
+        
+        if result['prediction'] != 'uncertain':
+            try:
+                from local_image_predictor import get_product_recommendations_from_excel
+                recommendations = get_product_recommendations_from_excel(result['prediction'])
+                print(f"\nTop 3 Recommendations:")
+                for rec in recommendations[:3]:
+                    print(f"  {rec}")
+            except ImportError:
+                pass
+                
+    except Exception as e:
+        print(f"Error: {e}")
+
+# 8. SIMPLE VERSION FOR TESTING
+def create_simple_improved_model(num_classes=4):
+    """
+    Simpler version for testing if the complex model has issues
+    """
+    model = tf.keras.Sequential([
+        tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(224, 224, 3)),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.MaxPooling2D(2,2),
+        
+        tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.MaxPooling2D(2,2),
+        
+        tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.MaxPooling2D(2,2),
+        
+        tf.keras.layers.Conv2D(256, (3,3), activation='relu'),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.MaxPooling2D(2,2),
+        
+        tf.keras.layers.GlobalAveragePooling2D(),
+        tf.keras.layers.Dropout(0.5),
+        tf.keras.layers.Dense(512, activation='relu'),
+        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
+    
+    model.compile(
+        optimizer='adam',
+        loss='sparse_categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    
+    return model
+
+def main():
+    class_names = ['acnes', 'blackheads', 'darkspots', 'wrinkles']  # Fixed to match your dataset
+    
+    print("Creating improved model...")
+    try:
+        model = create_improved_model(len(class_names))
+        print("✓ Model created successfully")
+    except Exception as e:
+        print(f"Error creating advanced model: {e}")
+        print("Falling back to simple improved model...")
+        model = create_simple_improved_model(len(class_names))
+    
+    # COMMENTED OUT TRAINING - SKIPPING TO PREDICTION
+    print("Creating data generators...")
+    try:
+        train_gen, val_gen = create_advanced_data_generators("dataset/SkinMate-Dataset")
+        print("✓ Data generators created successfully")
+        print(f"Training samples: {train_gen.samples}")
+        print(f"Validation samples: {val_gen.samples}")
+        print(f"Classes found: {train_gen.class_indices}")
+    except Exception as e:
+        print(f"Error creating data generators: {e}")
+        return
+    
+    print("Starting training...")
+    try:
+        history = model.fit(
+            train_gen, 
+            validation_data=val_gen, 
+            epochs=10,  # Reduced epochs for testing
+            verbose=1
+        )
+        print("✓ Training completed successfully")
+    except Exception as e:
+        print(f"Error during training: {e}")
+        return
+    
+    print("⚠️  Note: Using untrained model for demonstration purposes.")
+    print("   For actual predictions, you should train the model first.")
+    print("   Uncomment the training section above to train the model.")
+    
+    # ANALYSIS MODE MENU
+    print(f"\n{'='*60}")
+    print("🎯 SKIN ANALYSIS APP - Choose Analysis Mode")
+    print(f"{'='*60}")
+    print("1. 📷 Interactive Mode (analyze multiple images one by one)")
+    print("2. 📁 Batch Mode (analyze multiple images at once)")
+    print("3. 🔍 Quick Mode (analyze specific image path)")
+    print("4. ❌ Exit")
+    
+    while True:
+        choice = input("\nSelect mode (1-4): ").strip()
+        
+        if choice == '1':
+            print("\n🚀 Starting Interactive Analysis Mode...")
+            improved_prediction_function(model, class_names)
+            break
+        elif choice == '2':
+            print("\n🚀 Starting Batch Analysis Mode...")
+            batch_analysis_function(model, class_names)
+            break
+        elif choice == '3':
+            image_path = input("Enter image path: ").strip()
+            print("\n🚀 Starting Quick Analysis...")
+            quick_analysis_function(model, class_names, image_path)
+            break
+        elif choice == '4':
+            print("👋 Goodbye!")
+            break
+        else:
+            print("❌ Invalid choice. Please enter 1, 2, 3, or 4.")
+
+if __name__ == "__main__":
+    main()
+
