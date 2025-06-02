@@ -107,6 +107,10 @@ Modelul este compilat și antrenat cu următorii parametri:
 - Optimized: Adam() – un optimizator adaptiv eficient pentru deep learning
 - Funcție de pierdere: SparseCategoricalCrossentropy() – potrivită pentru clasificare multi-clasă
 - Metrică de performanță: accuracy – monitorizarea acurateței
+- Număr de epoci: epochs=10 - modelul este antrenat pe 10 epoci
+- Dimensiunea batch-ului: batch_size=32 - 32 de imagini procesate simultan
+- Dimensiunea imaginii: image_size=(224,224) - standardizat la 224 x 224 pixeli
+- Split de date: validation_split=0.2 - 80% pentru antrenare, 20% validare
 
 ## Ce metrici de performanta se monitorizeaza?
 
