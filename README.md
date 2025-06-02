@@ -12,6 +12,10 @@ data/
 
 Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versionat. Contribuitorii trebuie să obțină setul de date separat.
 
+# Prezentarea aplicatiei
+
+![FacialSkin Detection App](teaser.gif)
+
 # Etapa I: Definirea problemei.
 
 ## Ce se dă și ce se cere?
