@@ -87,3 +87,29 @@ def detect_and_crop_face(image_path):
     else:
         print("No face detected, using full image")
         return cv2.resize(img, (224, 224))
+    
+  # 3. ADVANCED DATA PREPROCESSING
+def preprocess_image_advanced(image_path):
+    """
+    Advanced preprocessing with face detection and enhancement
+    """
+    # Detect and crop face
+    face_img = detect_and_crop_face(image_path)
+    
+    # Convert BGR to RGB
+    face_img_rgb = cv2.cvtColor(face_img, cv2.COLOR_BGR2RGB)
+    
+    # Enhance image quality
+    # Histogram equalization for better contrast
+    lab = cv2.cvtColor(face_img, cv2.COLOR_BGR2LAB)
+    lab[:,:,0] = cv2.equalizeHist(lab[:,:,0])
+    enhanced_img = cv2.cvtColor(lab, cv2.COLOR_LAB2RGB)
+    
+    # Normalize pixel values
+    enhanced_img = enhanced_img.astype(np.float32) / 255.0
+    
+    # Add batch dimension
+    enhanced_img = np.expand_dims(enhanced_img, axis=0)
+    
+    return enhanced_img
+
