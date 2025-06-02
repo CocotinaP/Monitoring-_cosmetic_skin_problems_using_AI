@@ -143,3 +143,177 @@ def predict_with_confidence(model, image_path, class_names, confidence_threshold
             'message': f'Detected {predicted_class} with {max_confidence:.2%} confidence',
             'all_probabilities': {class_names[i]: predictions[0][i] for i in range(len(class_names))}
         }
+
+# 7. USAGE EXAMPLE 
+def improved_prediction_function(model, class_names):
+    """
+    Enhanced version of your current prediction function with multiple image analysis
+    FIXED: Proper tkinter window management for macOS
+    """
+    import tkinter as tk
+    from tkinter import filedialog
+    
+    print("🔬 SKIN ANALYSIS APP - Multiple Image Analyzer")
+    print("="*60)
+    
+    # Create root window once and reuse it
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
+    
+    # Fix dialog positioning on macOS
+    root.geometry("1x1+400+300")  # Small window positioned in center-ish area
+    root.update_idletasks()  # Force geometry update
+    
+    try:
+        while True:
+            print("\n📷 Select an image to analyze (or cancel to exit)")
+            
+            # Ensure proper window positioning before dialog
+            root.lift()  # Bring to front
+            root.attributes('-topmost', True)  # Keep on top temporarily
+            
+            # Use the existing root window for file dialog
+            image_path = filedialog.askopenfilename(
+                title="Select an image for skin analysis",
+                filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp *.gif")],
+                parent=root
+            )
+            
+            # Reset topmost attribute
+            root.attributes('-topmost', False)
+            
+            if not image_path:
+                print("👋 No image selected. Exiting analysis app.")
+                break
+            
+            print(f"\n🔍 Analyzing image: {os.path.basename(image_path)}")
+            print("-" * 50)
+            
+            try:
+                # Make prediction with confidence
+                result = predict_with_confidence(model, image_path, class_names)
+                
+                print(f"\n{'='*50}")
+                print("🎯 SKIN ANALYSIS RESULTS")
+                print(f"{'='*50}")
+                print(f"📊 Prediction: {result['prediction'].upper()}")
+                print(f"🎯 Confidence: {result['confidence']:.2%}")
+                print(f"💬 Message: {result['message']}")
+                
+                print(f"\n📈 All Probabilities:")
+                for condition, prob in result['all_probabilities'].items():
+                    bar_length = int(prob * 20)  # Create a simple progress bar
+                    bar = "█" * bar_length + "░" * (20 - bar_length)
+                    print(f"  {condition:12} {bar} {prob:.2%}")
+                
+                # Get product recommendations if confident
+                if result['prediction'] != 'uncertain':
+                    print(f"\n🧴 PRODUCT RECOMMENDATIONS for {result['prediction'].upper()}:")
+                    print("=" * 50)
+                    try:
+                        # Import the function from your notebook or local file
+                        from local_image_predictor import get_product_recommendations_from_excel
+                        recommendations = get_product_recommendations_from_excel(result['prediction'])
+                        for rec in recommendations:
+                            print(rec)
+                    except ImportError:
+                        print("📦 Product recommendation function not available.")
+                        print("   Add the Excel file and functions to your environment for recommendations.")
+                else:
+                    print(f"\n⚠️  LOW CONFIDENCE RESULT")
+                    print("Try with a clearer image or different lighting for better results.")
+                    
+            except Exception as e:
+                print(f"❌ Error analyzing image: {e}")
+            
+            # Ask if user wants to analyze another image
+            print(f"\n{'='*60}")
+            while True:
+                choice = input("🤔 Would you like to analyze another image? (y/n): ").lower().strip()
+                if choice in ['y', 'yes', '']:
+                    break
+                elif choice in ['n', 'no']:
+                    print("👋 Thank you for using the Skin Analysis App!")
+                    return
+                else:
+                    print("Please enter 'y' for yes or 'n' for no.")
+    
+    finally:
+        # Properly cleanup the root window
+        try:
+            root.quit()
+            root.destroy()
+        except:
+            pass  # Ignore any cleanup errors
+
+# Alternative: Simple batch analysis function
+def batch_analysis_function(model, class_names):
+    """
+    Analyze multiple images in batch mode
+    FIXED: Proper tkinter window management
+    """
+    import tkinter as tk
+    from tkinter import filedialog
+    
+    print("📁 BATCH SKIN ANALYSIS")
+    print("="*50)
+    
+    # Create root window once
+    root = tk.Tk()
+    root.withdraw()
+    
+    # Fix dialog positioning on macOS
+    root.geometry("1x1+400+300")  # Small window positioned in center-ish area
+    root.update_idletasks()  # Force geometry update
+    
+    try:
+        # Ensure proper window positioning before dialog
+        root.lift()  # Bring to front
+        root.attributes('-topmost', True)  # Keep on top temporarily
+        
+        # Select multiple files
+        image_paths = filedialog.askopenfilenames(
+            title="Select multiple images for batch analysis",
+            filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp *.gif")],
+            parent=root
+        )
+        
+        # Reset topmost attribute
+        root.attributes('-topmost', False)
+        
+        if not image_paths:
+            print("No images selected.")
+            return
+        
+        print(f"Selected {len(image_paths)} images for analysis...")
+        
+        results = []
+        for i, image_path in enumerate(image_paths, 1):
+            print(f"\n[{i}/{len(image_paths)}] Analyzing: {os.path.basename(image_path)}")
+            
+            try:
+                result = predict_with_confidence(model, image_path, class_names)
+                result['filename'] = os.path.basename(image_path)
+                results.append(result)
+                
+                print(f"  Result: {result['prediction']} ({result['confidence']:.1%})")
+                
+            except Exception as e:
+                print(f"  Error: {e}")
+        
+        # Summary report
+        print(f"\n{'='*60}")
+        print("📊 BATCH ANALYSIS SUMMARY")
+        print(f"{'='*60}")
+        
+        for result in results:
+            print(f"{result['filename']:25} → {result['prediction']:12} ({result['confidence']:.1%})")
+    
+    finally:
+        # Properly cleanup the root window
+        try:
+            root.quit()
+            root.destroy()
+        except:
+            pass
+
