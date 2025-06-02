@@ -143,6 +143,36 @@ def predict_with_confidence(model, image_path, class_names, confidence_threshold
             'message': f'Detected {predicted_class} with {max_confidence:.2%} confidence',
             'all_probabilities': {class_names[i]: predictions[0][i] for i in range(len(class_names))}
         }
+    
+# 5. MULTI-CONDITION DETECTION (if you want to detect multiple problems at once)
+def create_multilabel_model(num_classes=4):
+    """
+    Model that can detect multiple skin conditions simultaneously
+    """
+    base_model = tf.keras.applications.ResNet50V2(
+        weights='imagenet',
+        include_top=False,
+        input_shape=(224, 224, 3)
+    )
+    
+    base_model.trainable = False
+    
+    model = tf.keras.Sequential([
+        base_model,
+        tf.keras.layers.GlobalAveragePooling2D(),
+        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dense(512, activation='relu'),
+        tf.keras.layers.Dropout(0.2),
+        tf.keras.layers.Dense(num_classes, activation='sigmoid')  # Sigmoid for multi-label
+    ])
+    
+    model.compile(
+        optimizer='adam',
+        loss='binary_crossentropy',  # Binary crossentropy for multi-label
+        metrics=['binary_accuracy']
+    )
+    
+    return model
 
 # 7. USAGE EXAMPLE 
 def improved_prediction_function(model, class_names):
