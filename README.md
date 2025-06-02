@@ -22,11 +22,10 @@ bazate pe analiza imaginilor.<br>
 Pentru implementarea acestui sistem, trebuie luate în considerare următoarele componente: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Capturarea imaginilor și procesarea acestora <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Utilizatorul/ pacientul trebuie să își facă o poză cât se poate de clară, în unghiurile potrivite pentru analiza zonei afectate. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.	Algoritmi de AI pentru a identifica problemele pielii <br> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.	Generarea recomandărilor:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•**	Recomandări bazate pe tipul afecțiunii identificate<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•**	Sugerarea unor schimbări în stilul de viață și alimentație
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Algoritmi de AI pentru a identifica problemele pielii <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Generarea recomandărilor:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Recomandări bazate pe tipul afecțiunii identificate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**•** Sugerarea unor schimbări în stilul de viață și alimentație
 
 Sistemul ar trebui să fie antrenat pe un set variat de date pentru a putea "învăța" să facă distincții precise între problemele pielii.
 De asemenea, este important ca soluția să fie folosită doar pentru scopuri cosmetice și nu ca înlocuitor pentru un consult dermatologic.
@@ -52,21 +51,23 @@ AI-ul este capabil să:
 
 ### <ins>3. Învățarea din date și îmbunătățirea continuă </ins>
 
-AI are capacitatea de a învăța în mod continuu. Pe măsură ce primește mai multe imagini și etichete corecte, modelele de învățare profunda devin tot mai precise. Modelele pot fi antrenate pe baze de date dermatologice diverse, adaptate pe populații locale sau tipuri specifice de ten. Iar sistemul poate fi optimizat pentru a detecta afecțiuni rar întâlnite sau forme atipice de acnee, riduri. 
+AI are capacitatea de a învăța în mod continuu. Pe măsură ce primește mai multe imagini și etichete corecte, modelele de învățare profunda devin tot mai precise. Modelele pot fi antrenate pe baze de date dermatologice diverse, adaptate pe populații locale sau tipuri specifice de ten. Iar sistemul poate fi optimizat pentru a detecta afecțiuni rar întâlnite sau forme atipice de acnee, riduri.
 
-### <ins>4.	Reducerea erorilor și a subiectivității </ins>
-  În diagnosticarea tradițională, există un grad mare de **subiectivitate** – doi dermatologi pot oferi opinii diferite iar unele probleme pot fi omise vizual în graba consultației. AI aduce **consistență, obiectivitate și acuratețe**, deoarece utilizează aceiași algoritmi  și criterii pentru toate cazurile analizate.
+### <ins>4. Reducerea erorilor și a subiectivității </ins>
 
-### <ins>5.	Integrare ușoară în produse comerciale </ins>
-  Tehnologia AI poate fi integrată în aplicații mobile de beauty & health, oglinzi inteligente, aparatură de diagnostic la domiciliu, produse cosmetice personalizare (cu scanare facială). Aceasta oferă un avantaj competitiv companiilor din domeniul cosmetic și wellness.
+În diagnosticarea tradițională, există un grad mare de **subiectivitate** – doi dermatologi pot oferi opinii diferite iar unele probleme pot fi omise vizual în graba consultației. AI aduce **consistență, obiectivitate și acuratețe**, deoarece utilizează aceiași algoritmi și criterii pentru toate cazurile analizate.
+
+### <ins>5. Integrare ușoară în produse comerciale </ins>
+
+Tehnologia AI poate fi integrată în aplicații mobile de beauty & health, oglinzi inteligente, aparatură de diagnostic la domiciliu, produse cosmetice personalizare (cu scanare facială). Aceasta oferă un avantaj competitiv companiilor din domeniul cosmetic și wellness.
 
 # Etapa II: Analiza datelor de intrare
 
 ## Ce tip de date avem?
 
-Pentru antrenarea sistemului de detecție a problemelor cosmetice utilizăm un set de date ce conține imagini color impărțite în 4 categorii specifice(acnee, riduri, puncte negre, pete pigmentare). Imaginile faciale redau fie întreaga față, fie doar o porțiune. Setul de date este esențial pentru învățarea automată supravegheată și permite sistemului să învețe diferențele vizuale subtile dintre diversele imperfecțiuni cutanate. 
+Pentru antrenarea sistemului de detecție a problemelor cosmetice utilizăm un set de date ce conține imagini color impărțite în 4 categorii specifice(acnee, riduri, puncte negre, pete pigmentare). Imaginile faciale redau fie întreaga față, fie doar o porțiune. Setul de date este esențial pentru învățarea automată supravegheată și permite sistemului să învețe diferențele vizuale subtile dintre diversele imperfecțiuni cutanate.
 
-Pentru a folosi aplicația, utilizatorul trebuie să furnizeze o simplă fotografie a feței. Modelul AI antrenat va evalua imaginea utilizatorului și va produce o analiză automată. 
+Pentru a folosi aplicația, utilizatorul trebuie să furnizeze o simplă fotografie a feței. Modelul AI antrenat va evalua imaginea utilizatorului și va produce o analiză automată.
 
 ## Câte date avem?
 
@@ -80,22 +81,33 @@ Distribuția datelor din setul de imagini este uniformă pentru cele patru categ
 
 # Etapa IV: Dezvoltarea unui model de AI și evaluarea performantei
 
-Pe baza codului anterior, avem un **model CNN** (Convolutional Neural Network) pentru clasificarea afecțiunilor pielii. Mai jos sunt detaliile arhitecturii, setup-ul parametrilor și metricile de performanță monitorizate. 
+Pe baza codului anterior, avem un **model CNN** (Convolutional Neural Network) pentru clasificarea afecțiunilor pielii. Mai jos sunt detaliile arhitecturii, setup-ul parametrilor și metricile de performanță monitorizate.
 
 ## Ce arhitectura are modelul de AI?
 
 Modelul este o rețea neuronală convoluțională (CNN), formată din următoarele straturi:
--	Straturi convoluționale:
-  -	Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
-  -	Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
-  -	Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
-- Straturi de pooling: 
-  - MaxPooling2D(2,2) – reduce dimensiunea caracteristicilor, păstrând informațiile esențiale 
+
+- Straturi convoluționale:
+- Conv2D(32, (3,3), activation='relu') – 32 de filtre, dimensiune 3×3, activare ReLU
+- Conv2D(64, (3,3), activation='relu') – 64 de filtre, dimensiune 3×3, activare ReLU
+- Conv2D(128, (3,3), activation='relu') – 128 de filtre, dimensiune 3×3, activare ReLU
+- Straturi de pooling:
+  - MaxPooling2D(2,2) – reduce dimensiunea caracteristicilor, păstrând informațiile esențiale
 - Strat de Flatten:
-  - Flatten() – transformă datele 2D în format 1D pentru a fi procesate de straturile dense 
+  - Flatten() – transformă datele 2D în format 1D pentru a fi procesate de straturile dense
+    <br>
+
+## Ce setup (parametrii si hiper-parametrii) se folosesc pentru antrenarea si validarea modelului de AI?
+
+Modelul este compilat și antrenat cu următorii parametri:
+
+- Optimized: Adam() – un optimizator adaptiv eficient pentru deep learning
+- Funcție de pierdere: SparseCategoricalCrossentropy() – potrivită pentru clasificare multi-clasă
+- Metrică de performanță: accuracy – monitorizarea acurateței
 
 ## Ce metrici de performanta se monitorizeaza?
 
-Modelul folosește următoarele metrici pentru evaluare: 
-- **Acuratețe (accuracy)** – măsoară procentul de clasificări corecte 
-- **Funcția de pierdere (loss)** – arată diferența între predicțiile modelului și etichetele reale 
+Modelul folosește următoarele metrici pentru evaluare:
+
+- **Acuratețe (accuracy)** – măsoară procentul de clasificări corecte
+- **Funcția de pierdere (loss)** – arată diferența între predicțiile modelului și etichetele reale
