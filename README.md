@@ -16,8 +16,8 @@ Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versi
 
 - **Pataki Nicoleta-Denisa** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GitHub Profile](https://github.com/nicopataki)
 - **Păștin Maria-Ivona** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/Ianthe23)
-- **Popovici Cosmina-Maria** &nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/Stefania-Pecsar)
-- **Pecsar Stefania** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/CocotinaP)
+- **Pecsar Ștefania** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/Stefania-Pecsar)
+- **Popovici Cosmina-Maria** &nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/CocotinaP)
   <br><br>
 
 # Prezentarea aplicatiei
