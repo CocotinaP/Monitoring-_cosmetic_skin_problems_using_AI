@@ -12,6 +12,14 @@ data/
 
 Notă: Folderul de date (`data/`) este inclus în `.gitignore` și nu este versionat. Contribuitorii trebuie să obțină setul de date separat.
 
+## Contribuitorii repository-ului & link-uri catre conturile de Github
+
+- **Pataki Nicoleta-Denisa** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GitHub Profile](https://github.com/nicopataki)
+- **Păștin Maria-Ivona** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/Ianthe23)
+- **Popovici Cosmina-Maria** &nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/Stefania-Pecsar)
+- **Pecsar Stefania** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GitHub Profile](https://github.com/CocotinaP)
+  <br><br>
+
 # Prezentarea aplicatiei
 
 ![FacialSkin Detection App](teaser.gif)
@@ -82,6 +90,13 @@ Avem un total de 1 000 de imagini distribuite uniform în 4 categorii relevante 
 Distribuția datelor din setul de imagini este uniformă pentru cele patru categorii: **acens**, **blackheads**, **wrinkles** și **darkspots**. Această distribuție echilibrată este importantă pentru antrenarea unui model de învățare automată, deoarece previne supra-reprezentarea unei clase și permite modelului să învețe mai corect diferențele subtile dintre tipurile de imperfecțiuni cutanate.
 
 În ceea ce privește dimensiunile imaginilor, există o variație semnificativă în termeni de înălțime și lățime. De asemenea, raportul de aspect al imaginilor variază, indicând un set divers de imagini care pot include atât imagini cu întreaga față, cât și porțiuni ale feței.
+<br><br>
+
+# Etapa III: Dezvoltarea unei mini-aplicații software
+
+## Schemă ce cuprinde performanța modelului
+
+![Schema solutie](schema.webp)
 
 # Etapa IV: Dezvoltarea unui model de AI și evaluarea performantei
 
