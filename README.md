@@ -1,4 +1,4 @@
-## Proiect dezvoltat în cadrul curusului de Inteligență Artificaială al Facultății de Matematică și Informatică (UBB)
+## Proiect dezvoltat în cadrul cursului de Inteligență Artificială al Facultății de Matematică și Informatică (UBB)
 
 ## Structura folderului de date
 
